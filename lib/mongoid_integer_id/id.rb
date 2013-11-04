@@ -11,10 +11,6 @@ module MongoidIntegerId::Id
 
     index({ site_id: 1 }, unique: true, background: true, name: "site_id_index")
     validates :site_id, uniqueness: true, presence: true
-
-    def to_param
-      site_id
-    end
   end
 
   module ClassMethods
