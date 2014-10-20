@@ -5,7 +5,7 @@ module MongoidIntegerId::Id
   included do
     field :site_id, type: Integer
 
-    scope :without_site_id, where(:site_id.exists => false)
+    scope :without_site_id, ->{ where(:site_id.exists => false) }
 
     before_validation :generate_site_id, unless: "site_id.present?"
 
